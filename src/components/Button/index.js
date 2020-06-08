@@ -33,6 +33,8 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export default Button;
+
 const ButtonWithLoading = withLoading(Button);
 
-export default ButtonWithLoading;
+export { ButtonWithLoading };
