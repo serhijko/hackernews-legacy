@@ -15,6 +15,14 @@ const Button = ({
     {children}
   </button>;
 
+const Loading = () =>
+  <div>Loading ...</div>
+
+const withLoading = (Component) => ({ isLoading, ...rest }) =>
+  isLoading
+    ? <Loading />
+    : <Component { ...rest } />
+
 Button.defaultProps = {
   className: '',
 };
@@ -25,4 +33,6 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Button;
+const ButtonWithLoading = withLoading(Button);
+
+export default ButtonWithLoading;

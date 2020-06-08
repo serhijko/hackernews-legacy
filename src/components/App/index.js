@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './index.css';
-import Button from '../Button';
+import ButtonWithLoading from '../Button';
 import Table from '../Table';
 import Search from '../Search';
 import {
@@ -154,28 +154,22 @@ class App extends Component {
           />
         }
         <div className="interactions">
-          { isLoading
-            ? <Loading />
-            : <Button
-              onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
-            >
-              More
-            </Button>
-          }
-
+          <ButtonWithLoading
+            isLoading={isLoading}
+            onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+          >
+            More
+          </ButtonWithLoading>
         </div>
       </div>
     );
   }
 }
 
-const Loading = () =>
-  <div>Loading ...</div>
-
 export default App;
 
 export {
-  Button,
+  ButtonWithLoading,
   Search,
   Table
 };
