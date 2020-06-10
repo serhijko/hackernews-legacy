@@ -63,7 +63,10 @@ class App extends Component {
 
   setSearchTopStories(result) {
     const { hits, page } = result;
+    console.log(result);
+    console.log(this.state);
     this.setState(updateSearchTopStoriesState(hits, page));
+    console.log(this.state);
   }
 
   fetchSearchTopStories(searchTerm, page = 0) {
@@ -175,5 +178,6 @@ export default App;
 export {
   ButtonWithLoading,
   Search,
-  Table
+  Table,
+  updateSearchTopStoriesState
 };
